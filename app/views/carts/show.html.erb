@@ -1,5 +1,7 @@
 <section class="cart-show">
 
+  
+<% if (enhanced_cart.length() > 0) %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -15,6 +17,8 @@
         </tr>
       </thead>
       <tbody>
+        <% p "I'm HERE+++ #{enhanced_cart.length()}"%>
+        
         <% enhanced_cart.each do |item| %>
           <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
         <% end %>
@@ -49,4 +53,12 @@
     </div>
   </div>
 
+  <% else %>
+    <div class="empty_cart" style="text-align:center">
+      <h1>It appears to be empty around here!</h1>
+      <button style="background-color: light-blue; color: black; padding: 1em 1.5em;">
+      <%= link_to  'Back to shopping', :root %>
+      </button>
+    </div>
+  <% end %>
 </section>
