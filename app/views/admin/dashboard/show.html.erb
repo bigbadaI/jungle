@@ -1,3 +1,19 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb </p>
+<h1>Admin Category Counts</h1>
+
+<table class="table table-bordered">
+      <thead style="background-color: lightgrey;">
+        <tr>
+        <% test = @counts.keys%>
+        <% test.each do | item |%>
+          <th> <%= item %> </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+      <% test = @counts.keys%>
+        <% test.each do | item |%>
+          <td> <%= @counts[item] %></td>
+          <%end%>
+      </tbody>
+    </table>
 
